@@ -1,5 +1,5 @@
--- Made by geodude#2619
--- Thanks lolcat, kardin!
+-- Made by a60#0399
+-- Thanks a60,huyhoang28728
 
 if game.PlaceId ~= 6839171747 or game.ReplicatedStorage.GameData.Floor.Value ~= "Rooms" then
 	game.StarterGui:SetCore("SendNotification", { Title = "Invalid Place"; Text = "The game detected appears to not be rooms. Please execute this while in rooms!" })
