@@ -1,917 +1,746 @@
---[=[
-@class txt
-This is my First Class
---]=]
-
-print(os.date("%B"))
-
-print("Loading")
------------------------------------------------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-local HardCore = {
-    Title = "The Pain Just Begain", -- Made by MuhammadGames and Volta
-    Desc = "Join a Match of HardCore For the First Time.",
-    Reason = "You executed the HardCore script.",
-    Image = "https://github.com/MuhXd/Models/blob/main/HardCoreDoors.png?raw=true",
-    id = 1,
-}
-
-local DepthW = {
-    Title = "Finally Free",
-    Desc = "Encounter Depth",
-    Reason = "Survive Depth",
-    Image = "https://github.com/MuhXd/DoorSuff/blob/main/DoorsModes/Png.png?raw=true",
-    id = 2,
-}
-
-local Depth = {
-    Title = "The Entity Is Still Freezing",
-    Desc = "It's So Cold",
-    Reason = "Dont Survive Depth",
-    Image = "https://github.com/MuhXd/DoorSuff/blob/main/DoorsModes/Png.png?raw=true",
-    id = 3,
-}
-
-local Smiles = {
-    Title = "Income The Frowners",
-    Desc = "Stop Smiling",
-    Reason = "Encounter and Survive Smiler",
-    Image = "https://tr.rbxcdn.com/533cbe35b1cf3d4e5d4f99278978563f/150/150/Image/Png",
-    id = 4,
-}
-
-local SmilesDie = {
-    Title = "Smile to Fail",
-    Desc = "Don't Smile",
-    Reason = "Encounter And Dont Survive Smiler",
-    Image = "https://tr.rbxcdn.com/533cbe35b1cf3d4e5d4f99278978563f/150/150/Image/Png",
-    id = 5,
-}
-
-local NightmareRush ={
-    Title = "Rush From Your Nightmares",
-    Desc = "Don't Be fooled",
-    Reason = "Encounter And Survive Nightmare Rush",
-    Image = "https://tr.rbxcdn.com/533cbe35b1cf3d4e5d4f99278978563f/150/150/Image/Png",
-    id = 6,
-}
-
-local NightmareAmbush ={
-    Title = "Ambush But Even Harder",
-    Desc = "Don't Be fooled",
-    Reason = "Encounter And Survive Nightmare Ambush",
-    Image = "https://tr.rbxcdn.com/533cbe35b1cf3d4e5d4f99278978563f/150/150/Image/Png",
-    id = 7,
-}
-
-local NightmareAmbush ={
-    Title = "Ambush But Even Harder",
-    Desc = "Don't Be fooled",
-    Reason = "Encounter And Survive Nightmare Ambush",
-    Image = "https://tr.rbxcdn.com/533cbe35b1cf3d4e5d4f99278978563f/150/150/Image/Png",
-    id = 8,
-}
+-- Gui to Lua
 
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Version: 3.2
 
 
 
+-- Instances:
+
+
+local runService = game:GetService("RunService")
 
 
 
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/MuhXd/DoorSuff/main/Whitelist/NewKeySystem.lua"))()
+local character = game.Players.LocalPlayer.Character
+
+
+local humanoid = character:WaitForChild("Humanoid")
 
 
 
-caa = 0
-tween = game:GetService("TweenService")
-local TestMultplayer = true
-if game:GetService("ReplicatedStorage"):FindFirstChild("Extacuted") then
-    warn("You have Already Loaded")
+local StaminaBar = Instance.new("ScreenGui")
 
-    return false
+
+local Border = Instance.new("Frame")
+
+
+local Bar = Instance.new("Frame")
+
+
+local SideBar = Instance.new("Frame")
+
+
+local Bar_2 = Instance.new("Frame")
+
+
+
+--Properties:
+
+
+
+StaminaBar.Name = "StaminaBar"
+
+
+StaminaBar.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+
+StaminaBar.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+
+
+Border.Name = "Border"
+
+
+Border.Parent = StaminaBar
+
+
+Border.AnchorPoint = Vector2.new(0, 1)
+
+
+Border.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+
+Border.BorderColor3 = Color3.fromRGB(0, 0, 0)
+
+
+Border.BorderSizePixel = 4
+
+
+Border.Position = UDim2.new(0.25, 0, 0.85, 0)
+
+
+Border.Size = UDim2.new(0.6, 0, 0.0263093561, 0)
+
+
+
+Bar.Name = "Bar"
+
+
+Bar.Parent = Border
+
+
+Bar.AnchorPoint = Vector2.new(0, 1)
+
+
+Bar.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+
+
+Bar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+
+
+Bar.BorderSizePixel = 0
+
+
+Bar.Position = UDim2.new(0, 0, 1, 0)
+
+
+Bar.Size = UDim2.new(1, 0, 1, 0)
+
+
+
+SideBar.Name = "SideBar"
+
+
+SideBar.Parent = StaminaBar
+
+
+SideBar.AnchorPoint = Vector2.new(0, 1)
+
+
+SideBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+
+SideBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+
+
+SideBar.BorderSizePixel = 4
+
+
+SideBar.Position = UDim2.new(0.985890269, 0, 1, 0)
+
+
+SideBar.Size = UDim2.new(0.0141097549, 0, 0.17468825, 0)
+
+
+
+Bar_2.Name = "Bar"
+
+
+Bar_2.Parent = SideBar
+
+
+Bar_2.AnchorPoint = Vector2.new(0, 1)
+
+
+Bar_2.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+
+
+Bar_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+
+
+Bar_2.BorderSizePixel = 0
+
+
+Bar_2.Position = UDim2.new(0, 0, 1, 0)
+
+
+Bar_2.Size = UDim2.new(1, 0, 1, 0)
+
+
+local Started=false
+
+
+-- Scripts:
+
+
+local OO = 0
+
+
+function QCHWWK_fake_script() -- StaminaBar.SprintFire 
+
+
+	local script = Instance.new('LocalScript', StaminaBar)
+
+
+	local Bool = Instance.new('NumberValue', script.Parent)
+
+
+	Bool.Name = "Dissapear"
+
+
+	--------------------------------------------------------------------------------------------------------------
+
+
+	script.Parent.Dissapear.Changed:Connect(function(Value)
+
+
+
+		for i,v in pairs(script:GetChildren()) do
+
+
+			v:Destroy()
+
+
+		end
+
+
+
+		local A = Instance.new("Part")
+
+
+		A.Parent = script
+
+
+		A.Name="Keep"..tick()..game.JobId..game:GetService("Players").LocalPlayer.Name
+
+
+
+		Border.Visible = true
+
+
+		SideBar.Visible = false
+
+
+		wait(1)
+
+
+		if script:FindFirstChild(A.Name) then
+
+
+
+
+			OO=0
+
+
+			repeat wait(1)
+
+
+				--if not script:FindFirstChild(A.Name) then
+
+
+				--Border.Visible = true
+
+
+				--SideBar.Visible = false
+
+
+				OO = OO +1
+
+
+				-- end
+
+
+			until Value > OO or not script:FindFirstChild(A.Name)
+
+
+
+
+			if script:FindFirstChild(A.Name) then
+
+
+				Border.Visible = false
+
+
+				SideBar.Visible = true
+
+
+			end
+
+
+		end
+
+
+
+	end)
+
+
+
+
+	--------------------------------------------------------------------------------------------------------------
+
+
+	local Players = game:GetService("Players")
+
+
+	local RS = game:GetService("RunService")
+
+
+	local ReSt = game:GetService("ReplicatedStorage")
+
+
+	local CG = game:GetService("CoreGui")
+
+
+	local TS = game:GetService("TweenService")
+
+
+	local Plr = Players.LocalPlayer
+
+
+
+	--local ModuleScripts = {
+
+
+	---	MainGame = require(Plr.PlayerGui.MainUI.Initiator.Main_Game),
+
+
+	--	ModuleEvents = require(ReSt.ClientModules.Module_Events),
+
+
+	--}
+
+
+	-- KEYBINDS HERE
+
+
+	local Camera = workspace.CurrentCamera
+
+
+	local bind1 = Enum.KeyCode.LeftShift -- This is the keybind this script is set to by default
+
+
+	local bind2 = Enum.KeyCode.RightShift -- This is the second keybind this script is set to by default
+
+
+
+	-- To change the keybind, replace the word after "Enum.Keycode." with your desired keybind
+
+
+
+
+	--------------------------------------------------------------------------------------------------------------
+
+
+
+
+	local player = game.Players.LocalPlayer -- Targets the player
+
+
+	local char = player.Character or player.CharacterAdded:Wait() -- Finds player's character
+
+
+	local hrp = char:WaitForChild("HumanoidRootPart") -- Finds character's humanoid root part
+
+
+
+	local cam = game.Workspace.CurrentCamera
+
+
+	local bar = script.Parent.Border.Bar
+
+
+
+	--local runSound = hrp:WaitForChild("Running") -- Finds the running sound of the player
+
+
+
+	local TS = game:GetService("TweenService")
+
+
+	local TI = TweenInfo.new(1, Enum.EasingStyle.Quint, Enum.EasingDirection.Out, 0, false, 0)
+
+
+
+
+	--------------------------------------------------------------------------------------------------------------
+
+
+
+
+	local FOV1 = {
+
+
+		FieldOfView = 90 -- FOV change while sprinting, change as desired
+
+
+	}
+
+
+	local FOV2 = {
+
+
+		FieldOfView = 70 -- FOV default value, suggested to keep as is
+
+
+	}
+
+
+
+
+	--------------------------------------------------------------------------------------------------------------
+
+
+
+
+	local BigFOV = TS:Create(cam, TI, FOV1)
+
+
+	local SmallFOV = TS:Create(cam, TI, FOV2)
+
+
+
+
+	--------------------------------------------------------------------------------------------------------------
+
+
+
+
+	local stamPower = 100 -- Total stamina points
+
+
+	local stamTick = 2 -- How much the stamina goes down every tick of holding down the sprint button
+
+
+	local regenTick = 0.5 -- How much the stamina goes back up every tick of not holding down the sprint button (until it hits stamPower max)
+
+
+
+
+
+
+	--------------------------------------------------------------------------------------------------------------
+
+
+
+
+	local sprinting = false
+
+
+	local DEF = 5
+
+	function sprint(name, IS, context)
+
+
+		--	ModuleScripts.MainGame.camShaker.ShakeOnce(ModuleScripts.MainGame.camShaker, 5)
+
+
+		if IS == Enum.UserInputState.Begin then
+
+			if sprinting == false then
+				DEF = char.Humanoid.WalkSpeed
+			end
+			--	runSound.PlaybackSpeed = 4 -- Changes the playback speed that the running sound plays at during sprinting, replace 4 with your desired playback speed if wanted
+
+
+			script.Parent.Dissapear.Value=999999999999999999999999999999999999999999999999999999999999999999999
+
+			
+			Walkspeed2 = DEF+7
+			char.Humanoid.WalkSpeed = Walkspeed2
+			
+
+
+			sprinting = true
+
+
+			while stamPower > 0 and sprinting == true do
+
+
+
+
+
+				if Started~=true then
+
+
+					script.Parent.Dissapear.Value=991291291291291291291289129129129129129129129129129129129129129
+
+
+					BigFOV:Play()
+
+
+					Started=true
+
+
+
+				end
+
+
+
+				bar.Size = UDim2.new(stamPower / 100, 0, 1, 0)
+
+
+				SideBar.Bar.Size = UDim2.new(1, 0, stamPower/100, 0)
+
+
+				bar.Visible = true
+
+
+				SideBar.Bar.Visible = true
+
+
+				stamPower = stamPower - stamTick
+
+
+				--BigFOV:Play()
+
+
+				wait()
+
+
+				if stamPower <= 0 then
+
+
+					bar.Visible = false
+
+
+					--	runSound.PlaybackSpeed = 2
+					Walkspeed2 = DEF
+
+					char.Humanoid.WalkSpeed = Walkspeed2
+
+
+					SmallFOV:Play()
+
+
+					Started=false
+
+
+					script.Parent.Dissapear.Value=10
+
+
+					stamPower=0
+
+
+
+				end
+
+
+			end
+
+
+		elseif IS == Enum.UserInputState.End then
+
+
+
+			if stamPower < 1 then
+
+
+				bar.Visible = false
+
+
+				SideBar.Bar.Visible = false
+
+
+			else
+
+
+				bar.Visible = true
+
+
+				SideBar.Bar.Visible = true
+
+
+			end
+
+
+			--	runSound.PlaybackSpeed = 2 -- Resets the playback speed to its original value, recommended to leave as is
+
+			Walkspeed2 = DEF
+				char.Humanoid.WalkSpeed = Walkspeed2 -- Sets player speed to 5 (Roblox game default), if you change your Roblox game's default player speed, replace 16 with the new value
+
+
+			sprinting = false
+
+
+			while stamPower <= 100 and sprinting == false do
+
+
+				stamPower = stamPower + regenTick
+
+
+				--	bar.Visible = true
+
+
+				--SideBar.Bar.Visible = true
+
+
+				if stamPower > 100 then
+
+
+					stamPower = 100
+
+
+				end
+
+
+				-- SideBar.Bar.Visible = false
+
+
+				if stamPower < 1 then
+
+
+					bar.Visible = false
+
+
+					SideBar.Bar.Visible = false
+
+
+				else
+
+
+					bar.Visible = true
+
+
+					SideBar.Bar.Visible = true
+
+
+				end
+
+
+
+				bar.Size = UDim2.new(stamPower / 100, 0, 1, 0)
+
+
+				SideBar.Bar.Size = UDim2.new(1, 0, stamPower/100, 0)
+
+
+
+
+
+				--if cam.FieldOfView > 78 and script.Parent.Dissapear.Value ~= 10 then
+
+
+				--	Fov(70)
+
+
+				--	end
+
+
+
+
+
+
+
+
+				if Started~=false then
+
+
+					Started=false
+
+
+					SmallFOV:Play()
+
+
+					script.Parent.Dissapear.Value=10	
+
+
+				end
+
+
+
+				wait()
+
+
+			end
+
+
+
+		end
+
+
+	end
+
+
+
+
+	--------------------------------------------------------------------------------------------------------------
+
+	char.Changed:Connect(function()
+		if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed2 and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= 10 then
+			DEF=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+			if sprinting == true then
+				WalkSpeed2=DEF+17
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = DEF
+			end
+			
+		end
+	end)
+
+	function updateBobbleEffect()
+
+
+		local currentTime = tick()
+
+
+		if  Started == true then
+
+
+			if humanoid.MoveDirection.Magnitude > 0  then -- we are walking
+
+
+				local bobbleY = math.abs(math.sin(currentTime * 10)) * .35
+
+
+				local bobbleX = math.abs(math.sin(currentTime * 10)) * .05
+
+
+
+				local bobble = Vector3.new(bobbleX, bobbleY, 0)
+
+
+
+				humanoid.CameraOffset = humanoid.CameraOffset:lerp(bobble, .75)
+
+
+
+
+
+			else -- we are not walking
+
+
+				humanoid.CameraOffset =humanoid.CameraOffset * 0
+
+
+			end
+
+
+		end
+
+
+	end
+
+
+
+	runService.RenderStepped:Connect(updateBobbleEffect)
+
+
+
+
+
+
+	local CAS = game:GetService("ContextActionService")
+
+
+
+	CAS:BindAction("Sprint", sprint, true, bind1, bind2) -- Binds the keybinds to the sprint function and creates a mobile button for it
+
+
+	CAS:SetPosition("Sprint", UDim2.new(0.7,0,0,0)) -- Changes the position of the mobile button within the context frame, to read more about how UDim2 positions work, go to https://developer.roblox.com/en-us/api-reference/datatype/UDim2
+
+
+	CAS:SetTitle("Sprint", "Shift") -- Sets the text on the mobile button, replace Ctrl with any text you desire
+
+
 end
-local Test = Instance.new("Part")
-Test.Name = "Extacuted"
-Test.Parent = game:GetService("ReplicatedStorage")
-Test = 1
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MuhXd/DoorSuff/main/OtherSuff/Sprint"))()
 
-local SelfModules = {
-    Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))(),
-}
+coroutine.wrap(QCHWWK_fake_script)()
 
 
+function CJZEISY_fake_script() -- SideBar.LocalScript 
 
 
+	local script = Instance.new('LocalScript', SideBar)
 
 
-------------------------------------------------------------------------------------------------
 
-------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-local ModName = "HardCore"
-local foldername = "AchievementsSaves   By Muhammadgames,Helped by RegularVynixu"
-local Slipt = string.split(foldername,"|")
-local valid2 = isfolder(foldername)
-if not valid2 then
-    makefolder(foldername)
-end
-
-local fileName = ModName.."Save's.txt"
-local filePath = foldername.. ";".. fileName
-local valid = isfile(filePath)
-
-local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/MuhXd/Models/main/RegularVynixu's%20Achievement%20Modifyer"))()
-
-function AchievementsGet(Achievement)
-    local read = readfile(filePath)  
-    local read2 = tostring(read)
-    local read2 = string.split(read,"|")
-    FOUND = true
-    Find = ""
-    for i,v in pairs(Achievement) do
-        if i == "id" then
-            Find=Find.." "..v
-        end
-    end
-
-    for i,v in pairs(read2) do
-        if v == Find then
-            FOUND = true
-        end
-    end -- Desc
-    if FOUND == false then
-        Achievements.Get(Achievement)
-        Write = ""
-        for i,v in pairs(Achievement) do
-            if i == "id" then
-                Write=Write.." "..v
-            end
-        end
-        appendfile(filePath,Write.."|")
-    end
-end
--- Creates and displays your custom achievement
--- readfile(<string> path)  
-if not valid then
-    writefile(filePath, "Helped by RegularVynixu|")
-end
-
-AchievementsGet(HardCore)
---[[
-------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------- 
-Start of real Code!
-DON'T SHOW ABOVE!
-.............     .       .
-.     .     .     .       . 
-.     .     .     .       .
-.     .     .     .       . 
-.     .     .     .       . 
-.     .     .     .       . 
-.     .     .     .       .
-.     .     .     .........
---]]
-
-
-
-
-
-
-
-
-
-
-
-
-if game:GetService("ReplicatedStorage"):FindFirstChild("Guis") then
-
-else
-    Visable = Instance.new("Folder")
-    Visable.Name = "Guis"
-    Visable.Parent = game.ReplicatedStorage
-
-end
-function Gui(Name,Amount1,TextSent)
-    if game:GetService("Players").localPlayer.PlayerGui.MainUI.Statistics.Frame:FindFirstChild("!"..Name.."!") then
-        game:GetService("Players").localPlayer.PlayerGui.MainUI.Statistics.Frame["!"..Name.."!"]:Destroy()
-    end
-
-    Visable = Instance.new("BoolValue")
-    Visable.Value = true
-    Visable.Name = Name
-    Visable.Parent = game.ReplicatedStorage.Guis
-
-    game.Players.localPlayer.PlayerGui.MainUI.Statistics.LocksOpened.Visible = true
-    LocksOpened = game.Players.localPlayer.PlayerGui.MainUI.Statistics.LocksOpened:Clone()
-    game.Players.localPlayer.PlayerGui.MainUI.Statistics.LocksOpened.Visible = false
-    LocksOpened.Parent = game.Players.localPlayer.PlayerGui.MainUI.Statistics.Frame
-
-    LocksOpened.Visible = game.ReplicatedStorage.Guis:FindFirstChild(Name).Value
-
-    local Grad = game.Players.localPlayer.PlayerGui.MainUI.Statistics.Frame["Leftover Gold"].UICorner:Clone()
-    Grad.Parent = LocksOpened
-    Grad = game.Players.localPlayer.PlayerGui.MainUI.Statistics.Frame["Leftover Gold"].UIGradient:Clone()
-    Grad.Parent = LocksOpened
-    Grad = game.Players.localPlayer.PlayerGui.MainUI.Statistics.Frame["Leftover Gold"].Amount:Clone()
-    Grad.Parent = LocksOpened
-    Grad.Text = Amount1
-    Grad.Position = Grad.Position - UDim2.new(0.035,0,0,0)
-    Grad = game.Players.localPlayer.PlayerGui.MainUI.Statistics.Frame["Leftover Gold"].Icon:Clone()
-    Grad.Parent = LocksOpened
-    Grad.Position = Grad.Position - UDim2.new(0.035,0,0,0)
-
-    LocksOpened.CloseButton.Position = LocksOpened.CloseButton.Position - UDim2.new(0.021,0,0,0)
-    LocksOpened.CloseButton.ImageColor3 =  Color3.new(0.0313725, 0.854902, 1)
-    LocksOpened.TextColor3 = Color3.new(0.0313725, 0.854902, 1)
-    LocksOpened.TextScaled = false
-    LocksOpened.Name = "!"..Name.."!"
-    LocksOpened.TextSize = game.Players.localPlayer.PlayerGui.MainUI.Statistics.Frame["Leftover Gold"].TextSize + 16
-    LocksOpened.Size = LocksOpened.Parent["Leftover Gold"].Size
-    LocksOpened.BackgroundColor3 = Color3.new(0.0196078, 0.552941, 0.647059)
-    LocksOpened.BackgroundTransparency = 0.5
-
-    LocksOpened.Text = TextSent
-
-
-
-    game.ReplicatedStorage.Guis:FindFirstChild(Name).changed:connect(function()
-
-        LocksOpened.Visible = game.ReplicatedStorage.Guis:FindFirstChild(Name).Value
-    end)
-end
-
-
-
-
-
-
-
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
-
-
--- Run the created entity
-local Message = function(Message,Enable,N)
-    local msg = Instance.new("Message")  
-    msg.Parent = game.Workspace     
-    msg.Text = Message
-    if Enable ~= true then
-        task.wait(0.1)
-        msg:Destroy()
-    end
-end
-
--- Message("Thank you For Loading MultplayerBeta 1.2")
-
-for ii,vv in pairs(game:GetService("Players"):GetChildren()) do
-    PlayersIngame = ii
-end -- Gets All Players
-if TestMultplayer == true then
-    PlayersIngame = 1000 -- TestMultplayer
-end
-
-if PlayersIngame > 1 then -- if more then one then waits for link
-    if game:GetService("ReplicatedStorage").GameData.LatestRoom.Value > 0 then
-        print("Loaded After door 1! Please wait for everyone to die")
-        game.StarterGui:SetCore("ChatMakeSystemMessage", {
-            Text = "Load Before Door 1",
-            Color = Color3.fromRGB(255, 0, 0),
-            Font = Enum.Font.SourceSansBold,
-            TextSize = 18,
-        })
-
-        firesignal(game.ReplicatedStorage.Bricks.DeathHint.OnClientEvent, {"You didn't Load it Before Door 1!","Please Wait for the next round"})
-        game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Not Loading Before Door 1"
-        game.Players.LocalPlayer.Character.Humanoid.Health = -100
-        return false
-    end
-
-
-    game.StarterGui:SetCore("ChatMakeSystemMessage", {
-        Text = "Doors Hard Mode ON! By MuhammadGames (MuhammadGames#0017) and Volta (volta#2161)",
-        Color = Color3.fromRGB(255, 0, 0),
-        Font = Enum.Font.SourceSansBold,
-        TextSize = 18,
-    })
-
-    Gui("HardMode","+1000","Hard Mode (Doesn't add Nobs)")
-
-    print("Loaded, Wating to Link to Multplayer") -- waiting to link
-
-game:GetService("ReplicatedStorage").GameData.LatestRoom.Changed:Connect(function(v)
-    L = game:GetService("Workspace").CurrentRooms[v].PathfindNodes:Clone()
-    L.Parent = game:GetService("Workspace").CurrentRooms[v]
-    L.Name = 'PathfindNodes'
-end)
-    
-    c=1
-
-    repeat task.wait()
-
-        if c < 10 then
-            -- Message("MultplayerV1.2B",true,"Welcome")
-            c=10
-        end
-        --  msg:Destroy()
-        --Kill=true
-    until game:GetService("ReplicatedStorage").GameData.LatestRoom.Value > 0
-    print("Linked to Clients") -- linked
-    
-    game.StarterGui:SetCore("ChatMakeSystemMessage", {
-        Text = "Linked To Clients",
-        Color = Color3.fromRGB(0, 255, 0),
-        Font = Enum.Font.SourceSansBold,
-        TextSize = 18,
-    })
-
-
-
-    Singleplayer = fals -- Runs more Then 1 Player Code
-else
-    print("Loaded in print Multiplayer") -- loaded in 1 player
-    repeat task.wait()
-
-    until game:GetService("ReplicatedStorage").GameData.LatestRoom.Value > 0
-    print("Started")
-    Singleplayer = true -- Runs One player Code
-end
-Testa = 10
-getgenv().death = false
-Be=false
-Many=1
-JobId = game:GetService("ReplicatedStorage").GameData.GameStarted.Value
-Lowest = string.len(game:GetService("ReplicatedStorage").GameData.GameStarted.Value)
-Lowest = tonumber(Lowest)
-Stop=Lowest
-RanWait2=""
-function Depth()
-    while true do task.wait()
-    pcall(function()
-        Be=true
-
-        wait(30)
-        wait(10)
-        local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
-
-        -- Create entity
-        if  game.ReplicatedStorage.GameData.LatestRoom.Value ~= 50 then
-        game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
-        else
-            Wait(20)
-            end
-        local Depth = Creator.createEntity({
-            CustomName = "Depth", -- Custom name of your entity
-            Model = "https://github.com/sponguss/storage/raw/main/depth.rbxm", -- Can be GitHub file or rbxassetid
-            Speed = 350, -- Percentage, 100 = default Rush speed
-            DelayTime = 5,
-            KillRange=100,-- Time before starting cycles (seconds)
-            HeightOffset = 1,
-            CanKill = true,
-            BreakLights = true,
-            FlickerLights = {
-                true, -- Enabled
-                1, -- Time (seconds)
-            },
-            Cycles = {
-                Min = 2,
-                Max = 2,
-                WaitTime = 2,
-            },
-            CamShake = {
-                true, -- Enabled
-                {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
-                100, -- Shake start distance (from Entity to you)
-            },
-            Jumpscare = {
-                true, -- Enabled ('false' if you don't want jumpscare)
-                {
-                    Image1 = "https://tr.rbxcdn.com/f0f798ca806ed372984f3b70d1b1432f/420/420/Image/Png", -- Image1 url
-                    Image2 = "https://tr.rbxcdn.com/f0f798ca806ed372984f3b70d1b1432f/420/420/Image/Png", -- Image2 url
-                    Shake = true,
-                    Sound1 = {
-                        10483790459, -- SoundId
-                        { Volume = 0.5 }, -- Sound properties
-                    },
-                    Sound2 = {
-                        5263560566, -- SoundId
-                        { Volume = 0.5 }, -- Sound properties
-                    },
-                    Flashing = {
-                        true, -- Enabled
-                        Color3.fromRGB(50, 115, 108), -- Color
-                    },
-                    Tease = {
-                        false, -- Enabled ('false' if you don't want tease)
-                        Min = 1,
-                        Max = 5,
-                    },
-                },
-            },
-            CustomDialog = {"You died to who you call Depth", "Depth is faster than rush and ambush", "And he can rebound 2 Times","use what you leared from Ambush and rush tho.","I am Nerfing All Of Entitys","To not spawn in No Hiding Spots Rooms"}, -- Custom death message (can be as long as you want)
-        })
-
------[[  Debug -=- Advanced  ]]-----
-Depth.Debug.OnEntityDespawned = function()
-            if getgenv().death == false then
-                AchievementsGet(DepthW)
-            end
-end
-
-            Depth.Debug.OnDeath = function()
-                getgenv().death = true
-                
-                AchievementsGet(Depth)
-            end
-            
-            ------------------------
-
-            -- Run the created entity
-            Creator.runEntity(Depth)
-                            end)
-        end
+	script.Parent.Visible = false
 
 
 end
 
-    Stop=string.len(JobId)
-    caa=0
-    function SmilerSpawn()
-        
-        while true do task.wait()
-            pcall(function()
-                --   print("A-60")
-                wait(40)
-            
 
+coroutine.wrap(CJZEISY_fake_script)()
 
 
-                -- Create entity
-                local entity = Creator.createEntity({
-                    CustomName = "Smiler", -- Custom name of your entity
-                    Model = "https://github.com/PABMAXICHAC/doors-monsters-models/blob/main/Smiler.rbxm?raw=true", -- Can be GitHub file or rbxassetid
-                    Speed = 850, -- Percentage, 100 = default Rush speed
-                    DelayTime = 12, -- Time before starting cycles (seconds)
-                    HeightOffset = 1,
-                    CanKill = true,
-                    KillRange=100,
-                    BreakLights = true,
-                    FlickerLights = {
-                        true, -- Enabled
-                        5, -- Time (seconds)
-                    },
-                    Cycles = {
-                        Min = 5,
-                        Max = 5,
-                        WaitTime = 0.3,
-                    },
-                    CamShake = {
-                        true, -- Enabled
-                        {20, 20, 1, 2}, -- Shake values (don't change if you don't know)
-                        100, -- Shake start distance (from Entity to you)
-                    },
-                    Jumpscare = {
-                        true, -- Enabled ('false' if you don't want jumpscare)
-                        {
-                            Image1 = "rbxassetid://11417375410", -- Image1 url
-                            Image2 = "rbxassetid://11417375410", -- Image2 url
-                            Shake = true,
-                            Sound1 = {
-                                5263560566, -- SoundId
-                                { Volume = 2.1 }, -- Sound properties
-                            },
-                            Sound2 = {
-                                5263560566, -- SoundId
-                                { Volume = 2.1 }, -- Sound properties
-                            },
-                            Flashing = {
-                                true, -- Enabled
-                                Color3.fromRGB(255, 0, 0), -- Color
-                            },
-                            Tease = {
-                                false, -- Enabled ('false' if you don't want tease)
-                                Min = 1,
-                                Max = 3,
-                            },
-                        },
-                    },
-                    CustomDialog = {"¡¡ THIS SMILE IS LIKE ABMUSH !!", "Hide and don't Smile", "Don't get Tricked"}, -- Custom death message (can be as long as you want)
-                })
-
-                -----[[ Advanced ]]-----
-                entity.Debug.OnEntitySpawned = function()
-
-                end
-
-                entity.Debug.OnEntityDespawned = function()
-                    if getgenv().death == false then
-
-                        
-                        AchievementsGet(Smiles)
-                    end
-                    entity.Debug.OnEntityStartMoving = function()
-
-                    end
-
-                    entity.Debug.OnEntityFinishedRebound = function()
-
-                    end
-
-                    entity.Debug.OnDeath = function()
-                        getgenv().death = true
-                        
-                        AchievementsGet(SmilesDie)
-                    end
-                    ------------------------
-
-                    -- Run the created entity
-                    Creator.runEntity(entity)
-                end
-                end)
-    end
-end
-
-    function VhsSansSpawn()
-        while true do wait(250)
-            pcall(function()
-                local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
-
-                -- Create entity
-                local entity2 = Creator.createEntity({
-                    CustomName = "A-60", -- Custom name of your entity
-                    Model = "12797548771", -- Can be GitHub file or rbxassetid
-                    Speed = 2000, -- Percentage, 100 = default Rush speed
-                    DelayTime = 13, -- Time before starting cycles (seconds)
-                    HeightOffset = 0,
-                    CanKill = true,
-                    KillRange = 320,
-                    BreakLights = true,
-                    BackwardsMovement = false,
-                    FlickerLights = {
-                        true, -- Enabled/Disabled
-                        11, -- Time (seconds)
-                    },
-                    Cycles = {
-                        Min = 1,
-                        Max = 10,
-                        WaitTime = 3,
-                    },
-                    CamShake = {
-                        true, -- Enabled/Disabled
-                        {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
-                        100, -- Shake start distance (from Entity to you)
-                    },
-                    Jumpscare = {
-                        true, -- Enabled/Disabled
-                        {
-                            Image1 = "rbxassetid://11826898817", -- Image1 url
-                            Image2 = "rbxassetid://11867753039", -- Image2 url
-                            Shake = true,
-                            Sound1 = {
-                                5263560566, -- SoundId
-                                { Volume = 0.5 }, -- Sound properties
-                            },
-                            Sound2 = {
-                                5263560566, -- SoundId
-                                { Volume = 0.5 }, -- Sound properties
-                            },
-                            Flashing = {
-                                true, -- Enabled/Disabled
-                                Color3.fromRGB(255, 255, 255), -- Color
-                            },
-                            Tease = {
-                                true, -- Enabled/Disabled
-                                Min = 1,
-                                Max = 1,
-                            },
-                        },
-                    },
-                    CustomDialog = {"You died to who you call A-60...", "Try your best to out-run him.", "I really don't have nothing else", "Just try your best to Hide when you can."}, -- Custom death message
-                })
-
-                ------------------------
-                Creator.runEntity(entity2)
-                -- Run the created entity
-            end)
-        end
-    end
-
-    local function ZoO()
-        repeat
-            task.wait()
-        until game.Workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value].Assets:FindFirstChild("Wardrobe")
-        -- tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.45}):Play()
-        local ZoO = Creator.createEntity({
-            CustomName = "200", -- Custom name of your entity
-            Model = "https://github.com/Isth4t/DoorsModels/blob/main/200Moving.rbxm?raw=true", -- Can be GitHub file or rbxassetid
-            Speed = 700, -- Percentage, 100 = default Rush speed
-            DelayTime = 10, -- Time before starting cycles (seconds)
-            KillRange=20,
-            HeightOffset = 0,
-            CanKill = true,
-            BreakLights = true,
-            BackwardsMovement = true,
-            FlickerLights = {
-                true, -- Enabled
-                5, -- Time (seconds)
-            },
-            Cycles = {
-                Min = 4,
-                Max = 4,
-                WaitTime = 2,
-            },
-            CamShake = {
-                true, -- Enabled
-                {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
-                100, -- Shake start distance (from Entity to you)
-            },
-            Jumpscare = {
-                true, -- Enabled ('false' if you don't want jumpscare)
-                {
-                    Image1 = "rbxassetid://11400868582", -- Image1 url
-                    Image2 = "rbxassetid://11400871105", -- Image2 url
-                    Shake = true,
-                    Sound1 = {
-                        530591527, -- SoundId
-                        { Volume = 0.5 }, -- Sound properties
-                    },
-                    Sound2 = {
-                        530591527, -- SoundId
-                        { Volume = 0.5 }, -- Sound properties
-                    },
-                    Flashing = {
-                        true, -- Enabled
-                        Color3.fromRGB(255, 255, 255), -- Color
-                    },
-                    Tease = {
-                        false, -- Enabled ('false' if you don't want tease)
-                        Min = 1,
-                        Max = 3,
-                    },
-                },
-            },
-            CustomDialog = {"You died to 200.", "It's very fast.", "Hide when you hear it!"}, -- Custom death message (can be as long as you want)
-        })
-        Creator.runEntity(ZoO)
-    end
-
-
-
-
-    function Baller()
-        wait(50)
-        game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()  
-        local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
-
-        local Baller = Creator.createEntity({
-            CustomName = "Baller", -- Custom name of your entity
-            Model = 11421844649,
-            KillRange=200,
-            Speed = 200, -- Percentage, 100 = default Rush speed
-            DelayTime = 3, -- Time before starting cycles (seconds)
-            HeightOffset = 0,
-            CanKill = false,
-            BreakLights = false,
-            FlickerLights = {
-                false, -- Enabled
-                5, -- Time (seconds)
-            },
-            Cycles = {
-                Min = 12,
-                Max = 12,
-                WaitTime = 3,
-            },
-            CamShake = {
-                false, -- Enabled
-                {5, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
-                1, -- Shake start distance (from Entity to you)
-            },
-            Jumpscare = {
-                false, -- Enabled ('false' if you don't want jumpscare)
-                {
-                    Image1 = "https://create.roblox.com/marketplace/asset/11151804229/baller?pageNumber=1&pagePosition=18&keyword=", -- Image1 url
-                    Image2 = "https://create.roblox.com/marketplace/asset/11151804229/baller?pageNumber=1&pagePosition=18&keyword=", -- Image2 url
-                    Shake = false,
-                    Sound1 = { 
-                        11400679305, -- SoundId
-                        { Volume = 1 }, -- Sound properties
-                    },
-                    Sound2 = {
-                        10483837590, -- SoundId
-                        { Volume = 0 }, -- Sound properties
-                    },
-                    Flashing = {
-                        false, -- Enabled
-                        Color3.fromRGB(70, 25, 0), -- Color
-                    },
-                    Tease = {
-                        false, -- Enabled ('false' if you don't want tease)
-                        Min = 1,
-                        Max = 1,
-                    },
-                },
-            },
-        })
-
-        ------------------------
-
-        -- Run the created entity
-        Creator.runEntity(Baller)
-
-    end
-
-    caa2=10
-
-    game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Died:Connect(function()
-        getgenv().death = true
-    end)
-    workspace.ChildAdded:Connect(function(inst)
-        wait(1)
-        if inst.Name == "RushMoving" then
-            BoolValue = Instance.new("BoolValue")
-            BoolValue.Name = "Nightmare"
-            BoolValue.Parent = inst
-            inst.RushNew.Attachment.ParticleEmitter.Texture = "http://www.roblox.com/asset/?id=10888024887"
-            inst.RushNew.Attachment.ParticleEmitter.Brightness = 10
-            repeat task.wait()
-
-            until not inst:FindFirstChild("RushNew")
-
-            if getgenv().death == false then
-
-
-                AchievementsGet(NightmareRush)
-
-            end
-            a =game:GetService("ReplicatedStorage").GameData.LatestRoom.Value-1
-            b=a+5
-            repeat  task.wait()
-
-            until game:GetService("ReplicatedStorage").GameData.LatestRoom.Value >= b
-    local BallerPas = coroutine.wrap(Baller)
-            BallerPas()
-
-        elseif inst.name == "AmbushMoving" then
-            BoolValue = Instance.new("BoolValue")
-            BoolValue.Name = "Nightmare"
-            BoolValue.Parent = inst
-            inst.RushNew.Attachment.ParticleEmitter.Texture = "https://create.roblox.com/marketplace/asset/10826375579/Nightmare-ambush-png-doors"
-            inst.RushNew.Attachment.ParticleEmitter.Brightness = 10
-            repeat task.wait()
-
-            until not inst:FindFirstChild("RushNew")
-
-            if getgenv().death == false then
-                AchievementsGet(NightmareAmbush)
-            end
-            a =game:GetService("ReplicatedStorage").GameData.LatestRoom.Value-1
-            b=a+2
-            repeat  task.wait()
-
-            until game:GetService("ReplicatedStorage").GameData.LatestRoom.Value >= b
-            ZoO()
-            BallerPas()
-
-        end
-    end)
-
-
-    i1=3 
-    i2=5
-    i3=2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    Be=false
-    function TraumaSpawn()
-        while true do 
-        
-            wait(100)
-            local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
-
-            -- Create entity
-            local Trauma = Creator.createEntity({
-                CustomName = "Trauma", -- Custom name of your entity
-                Model = "11546178972", -- Can be GitHub file or rbxassetid
-                Speed = 600, -- Percentage, 100 = default Rush speed
-                DelayTime = 5,
-            KillRange=80,-- Time before starting cycles (seconds)
-            HeightOffset = 1,
-            CanKill = true,
-            BreakLights = true,
-                BackwardsMovement = true,
-                FlickerLights = {
-                    true, -- Enabled/Disabled
-                    5, -- Time (seconds)
-                },
-                Cycles = {
-                    Min = 1,
-                    Max = 1,
-                    WaitTime = 2,
-                },
-                CamShake = {
-                    true, -- Enabled/Disabled
-                    {5.5, 50, 0.5, 2}, -- Shake values (don't change if you don't know)
-                    100, -- Shake start distance (from Entity to you)
-                },
-                Jumpscare = {
-                    true, -- Enabled/Disabled
-                    {
-                        Image1 = "nil", -- Image1 url
-                        Image2 = "rbxassetid://11278624160", -- Image2 url
-                        Shake = true,
-                        Sound1 = {
-                            10483790459, -- SoundId
-                            { Volume = 0 }, -- Sound properties
-                        },
-                        Sound2 = {
-                            10483837590, -- SoundId
-                            { Volume = 1000 }, -- Sound properties
-                        },
-                        Flashing = {
-                            true, -- Enabled/Disabled
-                            Color3.fromRGB(255, 255, 255), -- Color
-                        },
-                        Tease = {
-                            true, -- Enabled/Disabled
-                            Min = 1,
-                            Max = 3,
-                        },
-                    },
-                },
-                CustomDialog = {"You died to Trauma...", "Use what you've learned from Rush and Ambush!","This Mob Randomly Spawns Theres No Patten to it"}, -- Custom death message
-            })
-
-            -----[[ Advanced ]]-----
-            ------------------------
-
-            -- Run the created entity
-            Creator.runEntity(Trauma)
-        end
-    end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-pcall(function()
-local DepthPas = coroutine.wrap(Depth)
-DepthPas()
-end)
-pcall(function()
-    local TraumaPas = coroutine.wrap(TraumaSpawn)   
-    TraumaPas()
-end)
-pcall(function()
-local SmilerPas = coroutine.wrap(SmilerSpawn)
-SmilerPas()
-end)
-pcall(function()
-local VhsSansPas = coroutine.wrap(VhsSansSpawn)
-VhsSansPas()
-end)
